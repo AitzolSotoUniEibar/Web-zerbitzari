@@ -1,0 +1,32 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>NIRE WEB</title>
+        <link rel="stylesheet" href='{% static "css/web.css" %}'>
+    </head>
+    <body>
+        <div>
+            <div>
+                <h1>Egile bat gehitzeko ondorengo formularioa bete</h1>
+            </div>
+
+            <form action="addegileberria/" method="POST">
+                {% csrf_token%}
+                <div>
+                    <label for="izena">Egilearen izena:</label>
+                    <input type="text" name="izena">
+                </div>
+                <div class="form_el">
+                    <label for="emaila">Egilearen emaila:</label>
+                    <input type="text" name="emaila">
+                </div>
+                <div class="form_el">
+                    <button type="submit" value="Submit">Egilea gehitu</button>
+                </div>
+            </form>
+        </div>
+        
+        
+    </body>
+</html>

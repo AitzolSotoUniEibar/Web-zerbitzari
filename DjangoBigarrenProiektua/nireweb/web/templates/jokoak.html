@@ -1,0 +1,47 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>NIRE WEB</title>
+        <link rel="stylesheet" href='{% static "css/web.css" %}'>
+    </head>
+    <body>
+        <div>
+            <div class="main">
+                <h1>Jokoen Web-a</h1>
+            </div>
+
+            <div>
+                <table align="center" border="1">
+                    <tr>
+                        <td>JOKOEN LISTA</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    {% for jokoa in jokoak %}
+                    <tr>
+                        <td>
+                            <div>
+                                <p><h2>{{jokoa.izenburua}}</h2></p>
+                                <p>{{jokoa.deskribapena}}</p>
+                                <p>{{jokoa.kategoria}}</p>
+                                <p>{{jokoa.egilea.izena}}</p>
+                            </div>
+                        </td>
+                        <td>
+                            <a href="deletejokoa/{{jokoa.id}}">Ezabatu</a>
+                        </td>
+                        <td>
+                            <a href="updatejokoa/{{jokoa.id}}">Aldatu</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="main link">
+                <a href="/addjokoa">Gehitu jokoa</a>
+                <a href="/egileak">Egileak ikusi</a>
+            </div>
+        </div>
+    </body>
+</html>

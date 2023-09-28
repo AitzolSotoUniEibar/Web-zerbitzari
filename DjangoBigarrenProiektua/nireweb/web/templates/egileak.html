@@ -1,0 +1,47 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>NIRE WEB</title>
+        <link rel="stylesheet" href='{% static "css/web.css" %}'>
+    </head>
+    <body>
+        <div>
+            <div class="main">
+                <h1>Egileen Web-a</h1>
+            </div>
+
+            <div>
+                <table align="center" border="1">
+                    <tr>
+                        <td>EGILEEN LISTA</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    {% for egilea in egileak %}
+                    <tr>
+                        <td>
+                            <div>
+                                <p><h2>{{egilea.izena}}</h2></p>
+                                <p>{{egilea.email}}</p>
+                                
+                            </div>
+                        </td>
+                        <td>
+                            <a href="deleteegilea/{{egilea.id}}">Ezabatu</a>
+                        </td>
+                        <td>
+                            <a href="updateegilea/{{egilea.id}}">Aldatu</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="main link">
+                <a href="/addegilea">Gehitu egilea</a>
+                <a href="/jokoak">Jokoak ikusi</a>
+            </div>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>NIRE WEB</title>
+        <link rel="stylesheet" href='{% static "css/web.css" %}'>
+    </head>
+    <body>
+        <div>
+            <div>
+                <h1>Joko bat aldatzeko ondorengo formularioa bete</h1>
+            </div>
+
+            <div>
+                <form action="{{jokoa.id}}/jokoaaldatu/" method="POST">
+                    {% csrf_token%}
+                    <div>
+                        <label for="izenburua">Jokoaren izenburua</label>
+                        <input type="text" name="izenburua" value="{{jokoa.izenburua}}">
+                    </div>
+                    <div class="form_el">
+                        <label for="deskribapena">Jokoaren deskribapena</label>
+                        <input type="text" name="deskribapena" value="{{jokoa.deskribapena}}">
+                    </div>
+                    <div class="form_el">
+                        <label for="kategoria">Jokoaren kategoria</label>
+                        <input type="text" name="kategoria" value="{{jokoa.kategoria}}">
+                    </div>
+                    <div class="form_el">
+                        <select name="egilea" id="egilea">
+                            {% for egilea in egileak %}
+                            <option value="{{egilea.izena}}">{{egilea.izena}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form_el">
+                        <button type="submit" value="Submit">Jokoa aldatu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        
+    </body>
+</html>

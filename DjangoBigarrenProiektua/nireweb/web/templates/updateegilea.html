@@ -1,0 +1,36 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>NIRE WEB</title>
+        <link rel="stylesheet" href='{% static "css/web.css" %}'>
+    </head>
+    <body>
+        <div>
+            <div>
+                <h1>Egile bat aldatzeko ondorengo formularioa bete</h1>
+            </div>
+            <br>
+
+            <div>
+                <form action="{{egilea.id}}/egileaaldatu/" method="POST">
+                    {% csrf_token%}
+                    <div>
+                        <label for="izena">Egilearen izena:</label>
+                        <input type="text" name="izena" value="{{egilea.izena}}">
+                    </div>
+                    <div class="form_el">
+                        <label for="emaila">Egilearen emaila:</label>
+                        <input type="text" name="emaila" value="{{egilea.emaila}}">
+                    </div>
+                    <div class="form_el">
+                        <button type="submit" value="Submit">Egilea aldatu</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        
+        
+    </body>
+</html>

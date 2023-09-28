@@ -1,0 +1,20 @@
+.main{
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    justify-content: center;
+    align-items: center;
+}
+
+.izenburua{
+    background-color: aquamarine;
+}
+
+.link{
+    margin-top: 1%;
+    color: black;
+}
+
+.form_el{
+    margin-top: 1%;
+}
